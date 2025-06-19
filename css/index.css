@@ -1,0 +1,135 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    font-family: Sans-Serif;
+    box-sizing: border-sizing;
+    color: #3d3d3d;
+}
+body {
+    background: #ffffff;
+
+    height: 100vh;
+}
+
+
+
+.container {
+    position: absolute;
+    /*top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    height: 90vh;
+    background: #ffffff;
+    box-shadow:
+        1px 1px 10px #d9d9d9,
+        -1px -1px 10px #d9d9d9;
+*/
+    display: flex;
+    margin-left: 7%;
+    flex-direction: column;
+}
+.container h1 {
+    margin-top: 35px;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.container .input {
+    border: none;
+    width: 260px;
+    padding: 0 5px 5px 5px;
+    margin-right: 5px;
+    border-bottom: 1px solid #1d1d1d;
+    outline: none;
+}
+.container button {
+    border: none;
+
+    padding: 10px;
+    border-radius: 12px;
+    color: #fff;
+    background: #1a1a1a;
+    margin-top: 4px;
+    cursor: pointer;
+}
+.container button:hover {
+    background: #acacac;
+}
+.tasks {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+.tasks .task {
+    display: flex;
+    border: 1px solid #1d1d1d;
+    border-radius: 7px;
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+.task-message.complete {
+  text-decoration: line-through;
+}
+.tasks .task .delete {
+    color:#c11515;
+    cursor: pointer;
+}
+
+footer {
+    position: fixed;
+    display: inline-block;
+    
+    bottom: 15px;
+}
+@media (min-width: 800px){
+  
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+   min-height: 70vh;
+    background: #ffffff;
+    margin: 0;
+    padding: 30px;
+    box-shadow:
+        1px 1px 10px #d9d9d9,
+        -1px -1px 10px #d9d9d9;
+        display: flex;
+        
+}
+.container .h1{
+  font-size: 30px;
+}
+.container .input{
+  width:auto;
+  font-size: 18px;
+}
+.container .input::placeholder{
+  font-size: 18px;
+}
+.container button {
+    
+
+    padding: 12px 24px;
+    border-radius: 12px;
+    
+}
+.tasks .task {
+  padding: 10px;
+  
+}
+
+.task-message{
+  font-size: 20px;
+}
+footer h3{
+  font-size: 25px;
+}
+
+}
