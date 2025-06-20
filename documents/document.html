@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todolist Documents</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Anuphan:wght@400;600;700&display=swap');
+
+    :root {
+      --text: #000;
+      --background: #faf9f5;
+      --muted: #666;
+      --border: #a7a6a3;
+      --code-bg: #eae9e5;
+      --heading-border: #a7a6a3;
+      --Links: color:rgb(50, 50, 153);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text: #f4f4f4;
+        --background: #101010;
+        --muted: #999;
+        --border: #343434;
+        --code-bg: #1f1f1f;
+        --heading-border: #333;
+        --Links: color:rgb(108, 108, 243);
+      }
+    }
+
+    body {
+      font-family: 'Inter Tight', 'Anuphan', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2.5rem;
+      line-height: 1.75;
+      color: var(--text);
+      background-color: var(--background);
+      animation: fadeIn 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    p {
+      margin: 0 0 1.5rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 24px;
+      margin-bottom: 16px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 2em;
+      border-bottom: 1px solid var(--heading-border);
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      border-bottom: 1px solid var(--heading-border);
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 1.7em;
+    }
+
+    h4 {
+      font-size: 1.425em;
+    }
+
+    h5 {
+      font-size: 1.245em;
+    }
+
+    h6 {
+      font-size: 1em;
+    }
+
+    a {
+      color: var(--Links);
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--muted);
+    }
+
+    code {
+      background: var(--code-bg);
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: Consolas, Menlo, Monaco, "Courier New", monospace;
+      font-size: 0.95em;
+    }
+
+    pre {
+      background: var(--code-bg);
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 0 0 1.5rem;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+      border-radius: 0;
+      font-size: 0.95em;
+      color: inherit;
+    }
+
+    blockquote {
+      border-left: 4px solid var(--border);
+      margin: 0 0 1.5rem;
+      padding-left: 16px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    ul,
+    ol {
+      margin: 0 0 1.5rem 1.5rem;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    li>ul,
+    li>ol {
+      margin-top: 0.5rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--code-bg);
+      font-weight: 600;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1rem auto;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="todo-list-app">📝 Todo List App</h1>
+
+  <blockquote>A simple, performance-focused todo list application built with vanilla HTML, CSS, and JavaScript to help
+    you manage your tasks efficiently.</blockquote>
+
+  <h2 id="features">✨ Features</h2>
+
+  <ul>
+    <li><strong>Lightweight &amp; Fast</strong> - Built with vanilla technologies for optimal performance</li>
+    <li><strong>Simple Interface</strong> - Clean, intuitive design for easy task management</li>
+    <li><strong>Responsive Design</strong> - Works seamlessly across all devices</li>
+    <li><strong>No Dependencies</strong> - Pure HTML, CSS, and JavaScript implementation</li>
+  </ul>
+
+  <h2 id="quick-start">🚀 Quick Start</h2>
+
+  <h3 id="option-1-use-the-live-app">Option 1: Use the Live App</h3>
+  Ready to start organizing your tasks?
+  <strong><a href="https://to-do-taupe-phi-33.vercel.app/" target="_blank" rel="noopener noreferrer">🌐 Open Todo List
+      App</a></strong>
+
+  <h3 id="option-2-run-locally">Option 2: Run Locally</h3>
+
+  <h4 id="prerequisites">Prerequisites</h4>
+  <ul>
+    <li>Git installed on your system</li>
+    <li>A modern web browser</li>
+  </ul>
+
+  <h4 id="installation">Installation</h4>
+
+  <ol>
+    <li><strong>Clone the repository</strong></li>
+  </ol>
+  <pre class="hljs"><code class="language-bash">git clone https://github.com/Peakk2011/TodoList.git</code></pre>
+
+  <ol>
+    <li><strong>Navigate to the project directory</strong></li>
+  </ol>
+  <pre class="hljs"><code class="language-bash">cd TodoList</code></pre>
+
+  <ol>
+    <li><strong>Open in your browser</strong></li>
+  </ol>
+  <pre class="hljs"><code class="language-bash"># Simply open index.html in your preferred browser
+   open index.html</code></pre>
+
+  <h2 id="tech-stack">🛠️ Tech Stack</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Technology</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>HTML5</strong></td>
+        <td>Structure and markup</td>
+      </tr>
+      <tr>
+        <td><strong>CSS3</strong></td>
+        <td>Styling and responsive design</td>
+      </tr>
+      <tr>
+        <td><strong>JavaScript</strong></td>
+        <td>Interactive functionality</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="project-structure">📁 Project Structure</h2>
+  <p>Inside<code>./raw/</code>with pure html</p>
+
+  <pre class="hljs"><code class="language-markdown">TodoList<span class="hljs-operator">/</span>
+raw/
+  ├── css/
+  │   └── index.css
+  ├── js/
+  │   └── index.js
+  └── index.html
+  </code></pre>
+
+  <p>With Mintkit Framework</p>
+
+  <pre class="hljs"><code class="language-markdown">TodoList<span class="hljs-operator">/</span>
+    src/
+    └── core/
+        ├── AgentUtils.js
+        ├── app.js
+        ├── Content.js
+        ├── CoreFramework.js
+        ├── EventHandle.js
+        ├── index.html
+        ├── live-reload.js
+        └── WebExecute.exe
+  </code></pre>
+
+  <h2 id="why-this-todo-list">Why This Todo List?</h2>
+
+  <ul>
+    <li><strong>Performance First</strong> - No heavy frameworks, just fast, efficient code</li>
+    <li><strong>Easy to Customize</strong> - Simple codebase that's easy to modify and extend</li>
+    <li><strong>Learning Friendly</strong> - Perfect for understanding vanilla web development</li>
+    <li><strong>Zero Setup</strong> - Clone and run immediately</li>
+  </ul>
+
+  <h2 id="contributing">🤝 Contributing</h2>
+  <p>
+    Fork this repository and clone it to your local machine<br>
+    And create a new branch for your changes.
+  </p>
+  <p>Contributions are welcome! Feel free to:
+  </p>
+  <ul>
+    <li>Report bugs</li>
+    <li>Suggest new features</li>
+    <li>Submit pull requests</li>
+    <li>Improve documentation</li>
+  </ul>
+  <p></p>
+
+  <h2 id="show-your-support">🌟 Show Your Support</h2>
+
+  <p>If this project helped you organize your tasks better, please give it a stars on GitHub!</p>
+
+</body>
+
+</html>
+
+<!-- Export this HTML file with Mintputs Markdown into HTML -->
