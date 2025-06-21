@@ -38,7 +38,6 @@
         
         if(stats.requests%10===0){
             const endTime=performance.now();
-            // console.log(`Stats: ${stats.requests} requests, ${stats.errors} errors, last check: ${(endTime-startTime).toFixed(2)}ms`);
         }
     };
     

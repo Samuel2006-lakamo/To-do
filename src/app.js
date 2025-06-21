@@ -20,7 +20,6 @@ const cache = {
     cssValid: false,
     html: null,
     htmlValid: false,
-    componentsValid: false,
     components: {
         comp1: null,
         comp2: null,
@@ -38,18 +37,13 @@ const generateMainStylesheet = () => {
 };
 
 // Page import
-const getCachedComponents = () => {
-    if (!cache.componentsValid) {
-        cache.components.comp1 = WebContent.ElementComponents();
-        cache.components.comp2 = WebContent.ElementComponents2();
-        cache.componentsValid = true;
-    }
-    return cache.components.comp1 + cache.components.comp2;
+const getCachedComponents = (state) => {
+    const comp1 = WebContent.ElementComponents(state);
+    return comp1;
 };
 
-const Main = Mint.createState({});
+const Main = Mint.createState({ tasks: [] });
 
-// logger about error log about ...
 const Logger = {
     error: console.error.bind(console, '[Mintkit Error]'),
     info: console.info.bind(console, '[Mintkit]'),
@@ -59,22 +53,37 @@ const Logger = {
 let renderQueued = false;
 let lastHTML = '';
 
-const queueRender = () => {
+const queueRender = (currentState) => {
     if (renderQueued) return;
     renderQueued = true;
     requestAnimationFrame(() => {
-        const html = CONTAINER_ROOT + getCachedComponents() + CONTAINER_CLOSE;
+        const html = CONTAINER_ROOT + getCachedComponents(currentState) + CONTAINER_CLOSE;
 
         if (html !== lastHTML) {
             lastHTML = html;
             Mint.injectHTML(ROOT, html);
-            Mint.MintAssembly?.();
+        } else {
+            console.warn('%c[Render] HTML is identical', 'color: #F97316', {
+                tasksInState: currentState.tasks.length,
+                newHTMLLength: html.length,
+                lastHTMLLength: lastHTML.length
+            });
         }
         renderQueued = false;
     });
 };
 
-Main.subscribe(queueRender);
+let webFunctionsInitialized = false; // Add flag if Webfunctions call once
+Main.subscribe((currentState) => {
+    queueRender(currentState);
+    if (currentState.tasks) {
+        localStorage.setItem('tasks', JSON.stringify(currentState.tasks));
+    }
+    if (!webFunctionsInitialized && Webfunctions) {
+        Webfunctions(Main);
+        webFunctionsInitialized = true;
+    }
+});
 
 const InitialMintkit = () => {
     // Font injection
@@ -99,22 +108,17 @@ const InitialMintkit = () => {
 
     WebContent.setThemeChangeCallback(() => {
         cache.cssValid = false;
-        cache.componentsValid = false;
         cache.mainStyle.textContent = generateMainStylesheet();
         Main.set(s => ({ ...s, _t: Date.now() }));
     });
 
-    Main.set({});
-    Logger.info('Mintkit initialized');
+    const initialTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    Main.set({ tasks: initialTasks });
 };
 
 const startMintkit = () => {
     Mint.AdjustHook?.();
     InitialMintkit();
-
-    if (Webfunctions) {
-        Webfunctions(Main);
-    }
 };
 
 if (document.readyState === 'complete') {

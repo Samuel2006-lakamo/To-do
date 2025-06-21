@@ -8,7 +8,8 @@ export const WebElements = {
         '"JetBrains Mono", monospace',
         '"Manrope", sans-serif',
         '"Instrument Sans", sans-serif',
-        '"Source Serif 4", serif'
+        '"Source Serif 4", serif',
+        '"Inter Tight", "Anuphan", "Leelawadee UI", sans-serif'
     ],
     DefaultFontFallback: '"Leelawadee UI", "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", sans-serif',
     Units: {
@@ -147,7 +148,10 @@ export const WebElements = {
 }
 
 export const lightThemeColors = {
-    ColorPrimary: '#FFFFFF;',
+    ColorPrimary: 'rgb(252, 252, 243)',
+    NavColorPrimary: 'rgba(252, 252, 243, 0.795)',
+    ColorPrimaryBlur: 'rgba(252, 252, 243, 0.6)',
+    ColorModelPrimary: '#f1f1e8',
     TextColorPrimaryDisplay: '#080707;',
     TextColorPrimaryText: '#333333;',
     HighlightPrimary: '#ffe9e9;',
@@ -155,13 +159,20 @@ export const lightThemeColors = {
         ImageBorderCrop: "#C2C2C2"
     },
     HighlightTags: {
-        BG: "#c9c9c9",
-        TEXT: "#2d2d2d",
+        BG: "#eeeee5",
+        TEXT: "#1f211d",
+    },
+    HighlightTagsColors: {
+        BG: "#1f211d",
+        TEXT: "#dceed3",
     }
 };
 
 export const darkThemeColors = {
     ColorPrimary: '#0c0c0c;',
+    NavColorPrimary: 'rgba(12, 12, 12, 0.400)',
+    ColorPrimaryBlur: 'rgba(12, 12, 12, 0.700)',
+    ColorModelPrimary: '#161616',
     TextColorPrimaryDisplay: '#FFFFFF;',
     TextColorPrimaryText: '#EEEEEE;',
     HighlightPrimary: '#413c3c;',
@@ -171,6 +182,10 @@ export const darkThemeColors = {
     HighlightTags: {
         BG: "#161616",
         TEXT: "#C9C9C9",
+    },
+    HighlightTagsColors: {
+        BG: "#dceed3",
+        TEXT: "#1f211d",
     }
 };
 
@@ -195,9 +210,9 @@ export const ThemeManager = {
     init() {
         if (typeof window !== 'undefined' && window.matchMedia) {
             const darkModeMatcher = window.matchMedia('(prefers-color-scheme: dark)');
-            
+
             this._updateCurrentColorsAndNotify(darkModeMatcher.matches);
-        
+
             darkModeMatcher.addEventListener('change', e => {
                 this._updateCurrentColorsAndNotify(e.matches);
             });
@@ -207,7 +222,6 @@ export const ThemeManager = {
     },
 
     get colors() {
-        // Getter to access the current theme's colors
         return this.currentColors;
     }
 };
