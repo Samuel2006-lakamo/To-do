@@ -3,7 +3,7 @@ export { WebElements };
 
 export const WebContent = {
     _cachedCSS: null,
-    PageTitle: 'MintKit',
+    PageTitle: 'To Do List - Mint teams',
 
     setThemeChangeCallback(callbackFromApp) {
         ThemeManager.setThemeChangeCallback(() => {
