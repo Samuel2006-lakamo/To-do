@@ -1,9 +1,9 @@
 # To-do-list (Todo list)
-## Simple programs todolist that making you easy to manage your work more better than with simple technology HTML-CSS-JAVASCRIPT Performance based.
+## Simple programs todolist that makes it easy to manage your work more better than with simple technology HTML-CSS-JAVASCRIPT Performance based.
 ### 📦 Get started
 | Without Coding      | With Coding & DEV      |
 | ------------- | ------------- |
-| Open [Todolist Apps](https://to-do-taupe-phi-33.vercel.app/) | Using Git Clone |
+| Open [Todolist Apps](https://to-do-list-ten-ruddy-50.vercel.app/) | Using Git Clone |
 
 ### 🪶 Clone This Project
 Using gitclone method to install this todolist project code below.
